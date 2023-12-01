@@ -1,35 +1,40 @@
 // Умеешь работать с keypress? Попробуй разобраться в этом файле.
 // Вместо keypress можно использовать и стандартный readline.
 // Главное не используй всё вместе!
-
 const keypress = require('keypress');
+// const Hero = require('./game-models/Hero');
 
 // Управление.
 // Настроим соответствия нажатий на клавиши и действий в игре.
 
-const keyboard = {
-  // q: () => console.log('q'),
-  // w: () => console.log('w'),
-  // e: () => console.log('e'),
-  // r: () => console.log('r'),
-  // t: () => console.log('t'),
-  // y: () => console.log('y'),
+// const keyboard = {
+// q: () => console.log('q'),
+// w: () => console.log('w'),
+// e: () => console.log('e'),
+// r: () => console.log('r'),
+// t: () => console.log('t'),
+// y: () => console.log('y'),
 
-  w: (hero) => hero.moveTop(),
-  a: (hero) => hero.moveLeft(),
-  s: (hero) => hero.moveBottom(),
-  d: (hero) => hero.moveRight(),
-};
+// w: (hero) => Hero.moveTop(),
+// a: (hero) => Hero.moveLeft(),
+// s: (hero) => Hero.moveBottom(),
+// d: (hero) => console.log(Hero.moveRight()),
+// };
 
 // Какая-то функция.
 
 function runInteractiveConsole(hero) {
+  const keyboard = {
+    a: () => hero.moveLeft(),
+    w: () => hero.attack(),
+    d: () => hero.moveRight(),
+  };
   keypress(process.stdin);
   process.stdin.on('keypress', (ch, key) => {
     if (key) {
       // Вызывает команду, соответствующую нажатой кнопке.
       if (key.name in keyboard) {
-        keyboard[key.name](hero);
+        keyboard[key.name]();
       }
       // Прерывание программы.
       if (key.ctrl && key.name === 'c') {
@@ -42,4 +47,6 @@ function runInteractiveConsole(hero) {
 
 // Давай попробуем запустить этот скрипт!
 
-runInteractiveConsole();
+// runInteractiveConsole();
+
+module.exports = runInteractiveConsole;

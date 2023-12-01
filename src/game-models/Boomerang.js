@@ -6,22 +6,24 @@ const Hero = require('./Hero');
 class Boomerang {
   constructor() {
     this.skin = '🌀';
-    this.position = Hero.position + 1;
-  }
-
-  fly() {
-    this.moveRight();
-    this.moveLeft();
+    this.position = 2;
   }
 
   moveLeft() {
     // Идём влево.
-    this.position -= 1;
+    this.position = 2;
   }
 
   moveRight() {
     // Идём вправо.
-    this.position += 1;
+    this.position += 3;
+  }
+
+  fly() {
+    this.moveRight();
+    setTimeout(() => {
+      this.moveLeft();
+    }, 1000);
   }
 }
 

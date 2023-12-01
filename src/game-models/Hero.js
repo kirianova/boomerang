@@ -2,10 +2,12 @@
 const Boomerang = require('./Boomerang');
 
 class Hero {
-  constructor({ position }) {
+  constructor(boomerang) {
     this.generatedSkin(); // можете использовать любые emoji '💃'
-    this.position = position;
-    this.boomerang = new Boomerang();
+    this.position = 1;
+    this.boomerang = boomerang;
+    this.moveRight();
+    this.moveLeft();
   }
 
   generatedSkin() {
@@ -47,5 +49,8 @@ class Hero {
     process.exit();
   }
 }
+
+// console.log(Hero.moveRight());
+// this.moveLeft();
 
 module.exports = Hero;
