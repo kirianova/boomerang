@@ -2,8 +2,26 @@
 
 class Hero {
   constructor({ position }) {
-    this.skin = '🤠'; // можете использовать любые emoji '💃'
+    this.generatedSkin(); // можете использовать любые emoji '💃'
     this.position = position;
+  }
+
+  generatedSkin() {
+    const skins = [
+      '🐡',
+      '⛄',
+      '🐼',
+      '🎃',
+      '🐸',
+      '🐝',
+      '🌼',
+      '🫡',
+      '🤺',
+      '🧛',
+      '😎',
+      '👽',
+    ];
+    this.skin = skins[Math.floor(Math.random() * skins.length)];
   }
 
   moveLeft() {
@@ -27,5 +45,7 @@ class Hero {
     process.exit();
   }
 }
-
+const me = new Hero({ position: 4 });
+console.log(me.generatedSkin());
+console.log(me.skin);
 module.exports = Hero;
