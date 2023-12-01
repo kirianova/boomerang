@@ -13,9 +13,9 @@ const View = require('./View');
 class Game {
   constructor({ trackLength }) {
     this.trackLength = trackLength;
-    this.hero = new Hero(); // Герою можно аргументом передать бумеранг.
+    this.hero = new Hero({ position: 4 }); // Герою можно аргументом передать бумеранг.
     this.enemy = new Enemy();
-    this.view = new View();
+    // this.view = new View();
     this.track = [];
     this.regenerateTrack();
   }
@@ -23,24 +23,25 @@ class Game {
   regenerateTrack() {
     // Сборка всего необходимого (герой, враг(и), оружие)
     // в единую структуру данных
-    this.track = (new Array(this.trackLength)).fill(' ');
+    this.track = new Array(this.trackLength).fill(" ");
     this.track[this.hero.position] = this.hero.skin;
+    return this.track.join("");
   }
 
-  check() {
-    if (this.hero.position === this.enemy.position) {
-      this.hero.die();
-    }
-  }
+  // check() {
+  //   if (this.hero.position === this.enemy.position) {
+  //     this.hero.die();
+  //   }
+  // }
 
   play() {
-    setInterval(() => {
-      // Let's play!
-      this.check();
-      this.regenerateTrack();
-      this.view.render(this.track);
-    });
+    // setInterval(() => {
+    // Let's play!
+    // this.check();
+    console.log(this.regenerateTrack());
+    // this.view.render(this.track);
   }
 }
+
 
 module.exports = Game;
