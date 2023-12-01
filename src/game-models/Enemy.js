@@ -1,4 +1,5 @@
 // Враг.
+const chalk = require('chalk');
 
 class Enemy {
   constructor({ position }) {
@@ -8,17 +9,17 @@ class Enemy {
 
   generateSkin() {
     const skins = [
-      "👾",
-      "💀",
-      "👹",
-      "👻",
-      "👽",
-      "👿",
-      "🤡",
-      "🤺",
-      "🧛",
-      "🧟",
-      "🎃",
+      '👾',
+      '💀',
+      '👹',
+      '👻',
+      '👽',
+      '👿',
+      '🤡',
+      '🤺',
+      '🧛',
+      '🧟',
+      '🎃',
     ];
     this.skin = skins[Math.floor(Math.random() * skins.length)];
   }
@@ -29,11 +30,10 @@ class Enemy {
   }
 
   die() {
-    this.position = "?";
-    this.skin = "💀";
-    console.log("Enemy is dead!");
+    this.position = '?';
+    this.skin = '💀';
+    console.log(chalk.bgRed('Enemy is dead!'));
   }
 }
-
 
 module.exports = Enemy;

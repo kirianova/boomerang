@@ -1,14 +1,15 @@
 // Сделаем отдельный класс для отображения игры в консоли.
+const chalk = require('chalk');
 
 class View {
   render(game) {
-    const yourTeamName = 'Elbrus';
+    const yourTeamName = 'Двое из ларца';
 
     // Тут всё рисуем.
     console.clear();
     console.log(game.track.join(''));
     console.log('\n\n');
-    console.log(`Created by "${yourTeamName}" with love`);
+    console.log(chalk.bgBlue(`Created by "${yourTeamName}" with love`));
   }
 }
 

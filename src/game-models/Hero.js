@@ -36,6 +36,7 @@ class Hero {
   moveRight() {
     // Идём вправо.
     this.position += 1;
+    this.boomerang.position += 1;
   }
 
   attack() {
@@ -45,7 +46,7 @@ class Hero {
 
   die() {
     this.skin = '💀';
-    console.log('YOU ARE DEAD!💀');
+    console.log(chalk.bgRed('YOU ARE DEAD!💀'));
     process.exit();
   }
 }
