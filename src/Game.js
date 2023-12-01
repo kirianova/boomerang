@@ -42,6 +42,7 @@ class Game {
   chekBoomerang() {
     if (this.boomerang.position >= this.enemy.position) {
       this.enemy.die();
+      process.exit();
     }
   }
 
