@@ -45,7 +45,6 @@ class Hero {
     process.exit();
   }
 }
-const me = new Hero({ position: 4 });
-console.log(me.generatedSkin());
-console.log(me.skin);
+
+
 module.exports = Hero;
